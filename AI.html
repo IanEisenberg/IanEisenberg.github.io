@@ -20,51 +20,68 @@
 
   <!-- Theme Style -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
 
   <div class="site-wrap">
 
+    <!--Navigation bar-->
     <a href="#" class="offcanvas-toggle js-offcanvas-toggle">Menu</a>
-    <div class="offcanvas_menu" id="offcanvas_menu">
-      <ul class="mb-5">
-        <li class="active"><a href="index.html">Bio</a></li>
-        <li><a href="AI.html">A I </a></li>
-        <li><a href="neuroscience.html">Neuroscience</a></li>
-        <li><a href="hobbies.html">Hobbies</a></li>
-        <li><a href="pdfs/CV.pdf">CV</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <div id="nav-placeholder"> </div>
+    <script>
+      $("#nav-placeholder").load(
+        "nav.html",
+        "",
+        function(){
+          path = window.location.pathname.substring(1)
+          $(`a[href$="${path}"]`).parent().addClass('active')
+        }
+      );
+    </script>
+    <!--end of Navigation bar-->
 
-      <ul class="social">
-        <li><a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en" class="ai ai-google-scholar"></a>
-        </li>
-        <li><a href="https://github.com/IanEisenberg" class="fa fa-github"></a></li>
-        <li><a href="https://www.linkedin.com/in/ian-eisenberg-aa17b594/" class="fa fa-linkedin"></a></li>
-        <li><a href="https://www.instagram.com/ianweisenberg/" class="fa fa-instagram"></a></li>
-      </ul>
-
-      </br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      Copyright &copy;
-      <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
-        class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-    </div>
-
-    <aside style="background-image: url(img/profile_big.jpg);"></aside>
+    <aside style="background-image: url(img/AI_landscape.jpeg);"></aside>
     <main>
       <a href="index.html" class="home-button"><span class="fa fa-home"></span></a>
       <h1 class="mb-5">AI</h1>
       <div class="mb-5">
-        <p>AI Governance...</p>
-        <p>Better measurement is a clear need to support de-risking AI systems.
+        <p>I believe the current moment in AI marks a turning point for humanity. We are 
+          scaling our ability to reason and interact with information in an unprecedented manner.
+          At the very least this moment introduces a new set of transformative tools that will
+          unlock strange and different futures. It's possible that AI does more though - that it
+          supercedes our own agency. Such a future needn't come from AGI - the infrastructure
+          of automated decision making systems we are creating are optimized for objectives 
+          beyond our direct control, often because we have limited understanding of the actual
+          goals and behaviors of the systems we create.
+        </p>
+        <p>In light of the potential and risks of AI, I have turned my career towards improving
+          our "wisdom" in deploying AI systems. I focus on AI governance, which I broadly see as
+          developing the organizational capacities, institutional wisdom, and regulatory frameworks
+          to properly incentivize and manage AI development. I do this as part of <a href="https://credo.ai/">Credo AI</a>,
+          where we develop a platform to help organizations mature and implement AI governance
+          practices. 
+        </p>
+        <p>Better measurement is clearly needed to support de-risking AI systems.
           Beyond technical advancements that push the frontier of how we are able to 
-          assess and understand complicated AI systems, there is also the very real need
+          assess and understand complicated AI systems, there is also the need
           for simple, accessible tools to democratize comprehensive AI assessment. 
-          My team develops the open-source Assessment Framework <a href="https://github.com/credo-ai/credoai_lens">Credo AI Lens</a>
+          My team develops the open-source assessment framework <a href="https://github.com/credo-ai/credoai_lens">Credo AI Lens</a>
           which aspires to be this tool.
+        </p>
+        <p>With teammates from Credo AI, I have written on a number of topics relating to AI governance,
+          including:
+          <a href="https://www.credo.ai/blog/cutting-through-the-noise-what-is-ai-governance">what AI governace is</a>, 
+          how to <a href="https://www.credo.ai/blog/operationalizing-responsible-ai-how-do-you-do-ai-governance">operationalize it</a>, 
+          and how governance applies to <a href="https://www.credo.ai/blog/ai-governance-in-the-time-of-generative-ai">Generative AI systems</a>.
+        </p>
+        <p>I've also been privileged to contribute to NIST's AI risk management framework, both
+          through <a href="https://www.credo.ai/blog/credo-ai-comments-on-nists-artificial-intelligence-risk-management-framework">direct commentary</a> 
+          in collaboration with Assisstant Secretary Alan Davidson and Credo AI, and through
+          <a href="https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/684682/uiconf_id/50882982/entry_id/1_vfk7bhb3/embed/dynamic">panels</a>
+          as part of <a href="https://www.nist.gov/news-events/events/2022/10/building-nist-ai-risk-management-framework-workshop-3">NIST's RMF workshops</a>.
+
         </p>
       </div>
 
