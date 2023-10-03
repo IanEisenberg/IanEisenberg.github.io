@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Resources - Ian W Eisenberg</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Existing Stylesheets -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Playfair+Display:,300, 400, 700"
+    rel="stylesheet">
+  <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script>
+$(document).ready(function(){
+  $.getJSON("publications.json", function(data){
+    var pub_items = [], policy_items = []; blog_items = [];
+    
+    data.publications.sort(function(a, b){
+      return new Date(b.date) - new Date(a.date);
+    });
+    $.each(data.publications, function(key, val){
+      pub_items.push("<li><strong>" + val.title + "</strong><br>" +
+                    val.source + " | " + val.date + "<br>" +
+                    "<a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
+    });
+
+    data.policy.sort(function(a, b){
+      return new Date(b.date) - new Date(a.date);
+    });
+    $.each(data.policy, function(key, val){
+      policy_items.push("<li><strong>" + val.title + "</strong><br>" +
+                    val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
+    });
+
+
+    data.blogs.sort(function(a, b){
+      return new Date(b.date) - new Date(a.date);
+    });
+    $.each(data.blogs, function(key, val){
+      blog_items.push("<li><strong>" + val.title + "</strong><br>" +
+                    val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
+    });
+
+    $(".publication-list").html(pub_items.join(""));
+    $(".policy-list").html(policy_items.join(""));
+    $(".blog-list").html(blog_items.join(""));
+  });
+});
+  </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            document.querySelector('.offcanvas-toggle').style.color = '#fff'; 
+        });
+    </script>
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+    <!--Navigation bar-->
+    <a href="#" class="offcanvas-toggle js-offcanvas-toggle">Menu</a>
+    <div id="nav-placeholder"></div>
+    <script>
+      $("#nav-placeholder").load(
+        "nav.html",
+        "",
+        function(){
+          path = window.location.pathname.substring(1);
+          $(`a[href$="${path}"]`).parent().addClass('active');
+        }
+      );
+    </script>
+    <!--end of Navigation bar-->
+    
+    <aside style="background-image: url(img/publications.png);"></aside>
+    <main>
+      <a href="index.html" class="home-button"><span class="fa fa-home"></span></a>
+      <h1 class="mb-5">Writings</h1>
+      <p>Welcome to my publications page, where you can find links to my writings across the internet! For a comprehensive list of my academic publications, please visit my <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en">Google Scholar profile</a>.</p>
+      
+      <div class="mb-5">
+      <!-- Publications Section -->
+      <section id="policy">
+        <h2>Policy Writings</h2>
+        <ul class="policy-list">
+        </ul>
+      </section>
+
+      <!-- Blogs Section -->
+      <section id="blogs">
+        <h2>Blogs</h2>
+        <ul class="blog-list">
+        </ul>
+      </section>
+    </div>
+    </main>
+  </div>
+
+  <!-- Existing Scripts -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

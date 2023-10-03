@@ -1,0 +1,74 @@
+{
+    "publications": [
+      {
+        "title": "Title of Publication 1",
+        "source": "Publication Source",
+        "date": "2019",
+        "link": "link-to-publication-1"
+      }
+    ],
+    "policy": [
+        {
+        "title": "Comments on NIST AI Risk Management Framework",
+        "source": "Credo AI",
+        "date": "October, 2021",
+        "link": "https://www.nist.gov/system/files/documents/2021/09/17/ai-rmf-rfi-0104.pdf"
+        },
+        {
+          "title": "Comments on AI Accountability Policy Request",
+          "source": "Credo AI",
+          "date": "June, 2023",
+          "link": "https://www.regulations.gov/comment/NTIA-2023-0005-1437"
+          }
+    ],
+    "blogs": [
+      {
+        "title": "The Hacker Mindset: 4 Lessons for AI from DEFCON 31",
+        "source": "Credo AI",
+        "date": "August, 2023",
+        "link": "https://www.credo.ai/blog/the-hacker-mindset-4-lessons-for-ai-from-def-con-31"
+      },
+      {
+        "title": "Reflection on How AI Systems Behave, and Who Should Decide",
+        "source": "Credo AI",
+        "date": "February, 2023",
+        "link": "https://www.credo.ai/blog/credo-ais-reflections-on-how-ai-systems-behave-and-who-should-decide"
+      },
+      {
+        "title": "Exploring Evaluations of AI Risk",
+        "source": "Credo AI",
+        "date": "June, 2023",
+        "link": "https://www.credo.ai/blog/paper-trail-1-exploring-evaluations-of-ai-risks"
+      },
+      {
+        "title": "Navigating the Legal Landscape of Fairness and Race-Aware Algorithms in AI Governance",
+        "source": "Credo AI",
+        "date": "July, 2023",
+        "link": "https://www.credo.ai/blog/paper-trail-2"
+      },
+      {
+        "title": "A Check-in with Stanford’s Hazy Research Group",
+        "source": "Credo AI",
+        "date": "September, 2023",
+        "link": "https://www.credo.ai/blog/paper-trail-3-a-check-in-with-stanfords-hazy-research-group"
+      },
+      {
+        "title": "AI Governance in the time of Generative AI",
+        "source": "Credo AI",
+        "date": "December, 2022",
+        "link": "https://www.credo.ai/blog/ai-governance-in-the-time-of-generative-ai"
+      },
+      {
+        "title": "Cutting Through the Noise: What Is AI Governance and Why Should You Care?",
+        "source": "Credo AI",
+        "date": "November, 2022",
+        "link": "https://www.credo.ai/blog/cutting-through-the-noise-what-is-ai-governance"
+      },
+      {
+        "title": "Operationalizing Responsible AI: How do you “do” AI Governance?",
+        "source": "Credo AI",
+        "date": "November, 2022",
+        "link": "https://www.credo.ai/blog/operationalizing-responsible-ai-how-do-you-do-ai-governance"
+      }
+    ]
+  }

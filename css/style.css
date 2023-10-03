@@ -4,7 +4,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   color: #878787;
-  background: #fff;
+  background: #fff2d8;
 }
 
 a {
@@ -237,8 +237,8 @@ body.offcanvas-open .site-wrap {
   z-index: 89;
   right: 20px;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  font-size: 16px;
+  letter-spacing: .2em;
+  font-size: 20px;
   top: 20px;
   color: #000;
 }
@@ -324,7 +324,7 @@ main, aside {
 
 aside {
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
   position: relative;
