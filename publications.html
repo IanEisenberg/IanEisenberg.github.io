@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X8TBGTHRZR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-X8TBGTHRZR');
+  </script>
   <title>Resources - Ian W Eisenberg</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,8 +32,7 @@ $(document).ready(function(){
     });
     $.each(data.publications, function(key, val){
       pub_items.push("<li><strong>" + val.title + "</strong><br>" +
-                    val.source + " | " + val.date + "<br>" +
-                    "<a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
+        val.journal + " | " + val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
     });
 
     data.policy.sort(function(a, b){
@@ -32,7 +40,7 @@ $(document).ready(function(){
     });
     $.each(data.policy, function(key, val){
       policy_items.push("<li><strong>" + val.title + "</strong><br>" +
-                    val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
+        val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
     });
 
 
@@ -44,7 +52,7 @@ $(document).ready(function(){
                     val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
     });
 
-    $(".publication-list").html(pub_items.join(""));
+    $(".academic-list").html(pub_items.join(""));
     $(".policy-list").html(policy_items.join(""));
     $(".blog-list").html(blog_items.join(""));
   });
@@ -83,16 +91,23 @@ $(document).ready(function(){
       <p>Welcome to my publications page, where you can find links to my writings across the internet! For a comprehensive list of my academic publications, please visit my <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en">Google Scholar profile</a>.</p>
       
       <div class="mb-5">
-      <!-- Publications Section -->
+      <!-- Academic Section -->
+      <section id="academic">
+        <h4>Selected Academic Publications</h4>
+        <ul class="academic-list">
+        </ul>
+      </section>
+      
+      <!-- Policy Section -->
       <section id="policy">
-        <h2>Policy Writings</h2>
+        <h4>Policy Writings</h4>
         <ul class="policy-list">
         </ul>
       </section>
 
       <!-- Blogs Section -->
       <section id="blogs">
-        <h2>Blogs</h2>
+        <h4>Blogs</h4>
         <ul class="blog-list">
         </ul>
       </section>

@@ -1,10 +1,25 @@
 {
     "publications": [
       {
-        "title": "Title of Publication 1",
-        "source": "Publication Source",
-        "date": "2019",
-        "link": "link-to-publication-1"
+        "title": "AI Risk Profiles: A Standards Proposal for Pre-Deployment AI Risk Disclosures",
+        "source": "Credo AI",
+        "journal": "arXiv",
+        "date": "September, 2023",
+        "link": "https://arxiv.org/pdf/2309.13176"
+      },
+      {
+        "title": "Uncovering the structure of self-regulation through data-driven ontology discovery",
+        "source": "Stanford",
+        "journal": "Nature Communications",
+        "date": "May, 2019",
+        "link": "https://www.nature.com/articles/s41467-019-10301-1"
+      },
+      {
+        "title": "Large-scale analysis of test–retest reliabilities of self-regulation measures",
+        "source": "Stanford",
+        "journal": "PNAS",
+        "date": "March, 2019",
+        "link": "https://www.pnas.org/syndication/doi/10.1073/pnas.1818430116"
       }
     ],
     "policy": [
