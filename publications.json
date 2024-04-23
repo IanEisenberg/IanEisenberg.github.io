@@ -1,6 +1,13 @@
 {
     "publications": [
       {
+        "title": "Introducing v0.5 of the AI Safety Benchmark from MLCommons",
+        "source": "MLCommons",
+        "journal": "arXiv",
+        "date": "April, 2024",
+        "link": "https://arxiv.org/html/2404.12241v1"
+      },
+      {
         "title": "AI Risk Profiles: A Standards Proposal for Pre-Deployment AI Risk Disclosures",
         "source": "Credo AI",
         "journal": "arXiv",
