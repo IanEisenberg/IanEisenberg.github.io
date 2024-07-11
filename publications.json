@@ -31,6 +31,12 @@
     ],
     "policy": [
         {
+          "title": "Risk Mitigation Strategies for the Open Foundation Model Value Chain",
+          "source": "Partnership on AI",
+          "date": "July, 2024",
+          "link": "https://partnershiponai.org/resource/risk-mitigation-strategies-for-the-open-foundation-model-value-chain/"
+        },
+        {
         "title": "Comments on NIST AI Risk Management Framework",
         "source": "Credo AI",
         "date": "October, 2021",
@@ -50,6 +56,12 @@
           }
     ],
     "blogs": [
+      {
+        "title": "The Responsible AI Stack: Connecting Governance to Action",
+        "source": "Credo AI",
+        "date": "June, 2024",
+        "link": "https://www.credo.ai/blog/the-responsible-ai-stack-connecting-governance-to-action"
+      },
       {
         "title": "The Hacker Mindset: 4 Lessons for AI from DEFCON 31",
         "source": "Credo AI",
