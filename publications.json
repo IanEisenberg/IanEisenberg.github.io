@@ -31,12 +31,6 @@
     ],
     "policy": [
         {
-          "title": "Risk Mitigation Strategies for the Open Foundation Model Value Chain",
-          "source": "Partnership on AI",
-          "date": "July, 2024",
-          "link": "https://partnershiponai.org/resource/risk-mitigation-strategies-for-the-open-foundation-model-value-chain/"
-        },
-        {
         "title": "Comments on NIST AI Risk Management Framework",
         "source": "Credo AI",
         "date": "October, 2021",
@@ -109,6 +103,21 @@
         "source": "Credo AI",
         "date": "November, 2022",
         "link": "https://www.credo.ai/blog/operationalizing-responsible-ai-how-do-you-do-ai-governance"
+      }
+    ],
+    "contributions": [
+      {
+        "title": "Risk Mitigation Strategies for the Open Foundation Model Value Chain",
+        "source": "Partnership on AI",
+        "date": "July, 2024",
+        "link": "https://partnershiponai.org/resource/risk-mitigation-strategies-for-the-open-foundation-model-value-chain/"
+      },
+      {
+        "title": "AI risk-management standards profile for general-purpose AI systems (GPAIS) and foundation models",
+        "source": "UC Berkeley",
+        "journal": "Center for Long-Term Cybersecurity",
+        "date": "2023",
+        "link": "https://perma.cc/8W6P-2UUK"
       }
     ]
   }
