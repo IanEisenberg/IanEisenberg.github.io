@@ -52,6 +52,14 @@ $(document).ready(function(){
                     val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
     });
 
+    data.contributions.sort(function(a, b){
+      return new Date(b.date) - new Date(a.date);
+    });
+    $.each(data.contributions, function(key, val){
+      contributions_items.push("<li><strong>" + val.title + "</strong><br>" +
+                    val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
+    });
+
     $(".academic-list").html(pub_items.join(""));
     $(".policy-list").html(policy_items.join(""));
     $(".blog-list").html(blog_items.join(""));
@@ -110,6 +118,13 @@ $(document).ready(function(){
       <section id="blogs">
         <h4>Blogs</h4>
         <ul class="blog-list">
+        </ul>
+      </section>
+
+      <!-- Contributions Section -->
+      <section id="contributions">
+        <h4>Contributions</h4>
+        <ul class="contributions-list">
         </ul>
       </section>
     </div>
