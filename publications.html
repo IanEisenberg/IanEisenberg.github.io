@@ -21,11 +21,14 @@
   <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script>
 $(document).ready(function(){
   $.getJSON("publications.json", function(data){
-    var pub_items = [], policy_items = []; blog_items = [];
+    var pub_items = [], 
+        policy_items = [], 
+        blog_items = [],
+        contributions_items = [];
     
     data.publications.sort(function(a, b){
       return new Date(b.date) - new Date(a.date);
@@ -42,7 +45,6 @@ $(document).ready(function(){
       policy_items.push("<li><strong>" + val.title + "</strong><br>" +
         val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
     });
-
 
     data.blogs.sort(function(a, b){
       return new Date(b.date) - new Date(a.date);
@@ -75,7 +77,7 @@ $(document).ready(function(){
 
 </head>
 
-<body>
+<body>z
 
   <div class="site-wrap">
     <!--Navigation bar-->
@@ -132,7 +134,6 @@ $(document).ready(function(){
   </div>
 
   <!-- Existing Scripts -->
-  <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
