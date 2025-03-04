@@ -50,6 +50,11 @@
           }
     ],
     "blogs": [
+      {"title": "The Model Trust Score: The Framework for Strategic Enterprise AI Model Selection",
+      "source": "Credo AI",
+      "date": "March, 2025",
+      "link": "https://www.credo.ai/model-trust-scores-ai-evaluation"
+      },
       {
         "title": "The Responsible AI Stack: Connecting Governance to Action",
         "source": "Credo AI",
