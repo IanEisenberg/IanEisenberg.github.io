@@ -1,6 +1,13 @@
 {
     "publications": [
       {
+        "title": "The Unified Control Framework: Establishing a Common Foundation for Enterprise AI Governance, Risk Management and Regulatory Compliance",
+        "source": "Credo AI",
+        "journal": "arXiv",
+        "date": "March, 2025",
+        "link": "https://arxiv.org/abs/2503.05937"
+      },
+      {
         "title": "Introducing v0.5 of the AI Safety Benchmark from MLCommons",
         "source": "MLCommons",
         "journal": "arXiv",
