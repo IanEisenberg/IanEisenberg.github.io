@@ -2269,3 +2269,23 @@ aside {
     cursor: none;
   }
 }
+
+/* ================================================
+   FACE TIMELAPSE EASTER EGG
+   ================================================ */
+
+#face-timelapse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+#face-timelapse.playing {
+  opacity: 1;
+}

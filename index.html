@@ -51,7 +51,9 @@
     </script>
     <!--end of Navigation bar-->
     
-    <aside style="background-image: url(img/profile.jpeg);"></aside>
+    <aside style="background-image: url(img/profile.jpeg);">
+      <video id="face-timelapse" src="img/face-timelapse-compressed.mp4" muted playsinline></video>
+    </aside>
     <main>
       <h1 class="mb-0">Ian Eisenberg</h1>
       <p class="lead mb-4"><a href="AI.html">AI</a> &#183; <a href="neuroscience.html">Neuroscience</a> &#183; <a href="https://www.instagram.com/ianweisenberg/">Art &#183; Play</a></p>
@@ -98,6 +100,35 @@
   <script src="js/jquery.countdown.min.js"></script>
   <script src="js/main.js"></script>
   <script>
+    // Face timelapse easter egg
+    document.addEventListener('DOMContentLoaded', function() {
+      var aside = document.querySelector('aside');
+      var video = document.getElementById('face-timelapse');
+      var videoDuration = 85;
+
+      if (aside && video) {
+        aside.style.cursor = 'pointer';
+
+        aside.addEventListener('click', function() {
+          if (video.classList.contains('playing')) {
+            // Stop and hide
+            video.pause();
+            video.classList.remove('playing');
+          } else {
+            // Start at random time and play
+            video.currentTime = Math.random() * (videoDuration - 10);
+            video.classList.add('playing');
+            video.play();
+          }
+        });
+
+        // Hide when video ends
+        video.addEventListener('ended', function() {
+          video.classList.remove('playing');
+        });
+      }
+    });
+
     // Fade-in on scroll
     document.addEventListener('DOMContentLoaded', function() {
       var fadeElements = document.querySelectorAll('.fade-in');
