@@ -52,7 +52,7 @@
     <!--end of Navigation bar-->
     
     <aside style="background-image: url(img/profile.jpeg);">
-      <video id="face-timelapse" src="img/face-timelapse-compressed.mp4" muted playsinline></video>
+      <video id="face-timelapse" src="img/face-timelapse-web.mp4" muted playsinline loop preload="auto"></video>
     </aside>
     <main>
       <h1 class="mb-0">Ian Eisenberg</h1>
@@ -105,26 +105,55 @@
       var aside = document.querySelector('aside');
       var video = document.getElementById('face-timelapse');
       var videoDuration = 85;
+      var videoReady = false;
 
       if (aside && video) {
-        aside.style.cursor = 'pointer';
+        // Preload entire video into memory for seeking support
+        fetch(video.src)
+          .then(function(response) { return response.blob(); })
+          .then(function(blob) {
+            video.src = URL.createObjectURL(blob);
+            videoReady = true;
+            console.log('Video preloaded');
+          });
 
-        aside.addEventListener('click', function() {
-          if (video.classList.contains('playing')) {
-            // Stop and hide
-            video.pause();
-            video.classList.remove('playing');
-          } else {
-            // Start at random time and play
-            video.currentTime = Math.random() * (videoDuration - 10);
-            video.classList.add('playing');
-            video.play();
+        var fadeTimeout, stopTimeout;
+
+        aside.addEventListener('mouseenter', function() {
+          if (!videoReady) {
+            console.log('Video still loading...');
+            return;
           }
+
+          // Clear any existing timeouts
+          clearTimeout(fadeTimeout);
+          clearTimeout(stopTimeout);
+
+          // Random start time
+          var randomTime = Math.floor(Math.random() * videoDuration);
+          video.currentTime = randomTime;
+          video.classList.remove('fading');
+          video.classList.add('playing');
+          video.play();
+
+          // Start fade at 6 seconds
+          fadeTimeout = setTimeout(function() {
+            video.classList.add('fading');
+          }, 6000);
+
+          // Stop at 7 seconds
+          stopTimeout = setTimeout(function() {
+            video.pause();
+            video.classList.remove('playing', 'fading');
+          }, 7000);
         });
 
-        // Hide when video ends
-        video.addEventListener('ended', function() {
-          video.classList.remove('playing');
+        // Stop when mouse leaves the aside
+        aside.addEventListener('mouseleave', function() {
+          clearTimeout(fadeTimeout);
+          clearTimeout(stopTimeout);
+          video.pause();
+          video.classList.remove('playing', 'fading');
         });
       }
     });
