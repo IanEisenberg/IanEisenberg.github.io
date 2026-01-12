@@ -11,7 +11,7 @@
 
     gtag('config', 'G-X8TBGTHRZR');
   </script>
-  <title>Landing page</title>
+  <title>Ian Eisenberg - AI Governance, Neuroscience, Art, Play</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -53,39 +53,34 @@
     
     <aside style="background-image: url(img/profile.jpeg);"></aside>
     <main>
-      <h1 class="mb-0">Ian W Eisenberg</h1>
-      <div class="mb-5">
-        <p class="lead mb-3"><a href="AI.html">AI</a> &#183; <a href="neuroscience.html">Neuroscience</a> &#183; Art &#183; Play</p>
-        <p>Hi! I'm an AI Governance researcher, community builder, and cognitive neuroscientist. I focus on system-level interventions
-          to make AI more effective and beneficial. To that end, I lead <a href="https://www.credo.ai/">Credo AI's</a>
-          AI Governance Research team, and founded <a href="https://aisalon.xyz/">the Ai Salon</a>, an organization supporting discourse on the meaning and impact of AI.
-        </p>
+      <h1 class="mb-0">Ian Eisenberg</h1>
+      <p class="lead mb-4"><a href="AI.html">AI</a> &#183; <a href="neuroscience.html">Neuroscience</a> &#183; <a href="https://www.instagram.com/ianweisenberg/">Art &#183; Play</a></p>
 
-        <p>I draw from the social and life sciences, my experience as a
-          machine learning engineer, and my involvement in the broader AI safety community. My 
-          overriding motivation is to solve challenging problems facing humanity
-          and improve the likelihood that our technologies support our flourishing. At Credo AI
-          I do this by researching and developing AI governance solutions and by publishing
-          blogs, papers, and policy responses - a selection of which are on my <a href="publications.html">publications page</a>. 
-          With the Ai Salon, I work to create a community that enables democratized conversations on the future and impact of AI.
-        </p>
+      <div class="mb-4 fade-in">
+        <p>I'm an AI researcher and leader focused on system-level interventions to make AI more effective and beneficial. I lead Technical AI Governance Research at <a href="https://www.credo.ai/">Credo AI</a> and founded <a href="https://aisalon.xyz/">the Ai Salon</a> to invigorate civil society discussion around AI. I've contributed to initiatives like the NIST AI Risk Management Framework, MLCommons AI Safety, and Partnership on AI working groups.</p>
 
-        <p>Outside of these <em>serious</em> things, I value play, exploration and creativity. 
-          Life wouldn't be complete without my hobbies and the communities around me! 
-          
+        <p>I'm motivated by AI's transformative potential and the risks that derive from that power. While inspired by its positive possibilities, I believe we currently underinvest in risk mitigation and focus my time there.</p>
+
+        <p>Before AI governance, I was a <a href="neuroscience.html">cognitive neuroscientist</a>—earning my PhD at Stanford and researching at the NIH, Columbia, and Brown. I've worked as a computational social scientist and machine learning engineer, which gives me both technical depth and a pragmatic view toward AI development.</p>
+
+        <p>If you're reading this far, know that outside of these <em>serious</em> things I highly value play. You can often find me juggling, drawing, making music, and exploring trails and ideas with others.</p>
       </div>
 
-      <p>
+      <p class="social-links mb-4">
         <a href="https://www.linkedin.com/in/ian-eisenberg-aa17b594/" class="mr-2 fa fa-linkedin fa-2x"></a>
         <a href="https://twitter.com/Ian_Eisenberg" class="mr-2 fa fa-twitter fa-2x"></a>
-        <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en"
-          class="mr-2 ai ai-google-scholar ai-2x"></a>
+        <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en" class="mr-2 ai ai-google-scholar ai-2x"></a>
         <a href="https://github.com/IanEisenberg" class="mr-2 fa fa-github fa-2x"></a>
         <a href="https://www.instagram.com/ianweisenberg/" class="mr-2 fa fa-instagram fa-2x"></a>
       </p>
-  </div>
 
-  </main>
+      <!-- CTA -->
+      <div class="cta-box fade-in">
+        <p class="cta-text">Interested in collaborating?</p>
+        <a href="contact.html" class="cta-button">Let's Connect</a>
+      </div>
+
+    </main>
   </div>
 
   <!-- loader -->
@@ -102,6 +97,28 @@
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.countdown.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    // Fade-in on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      var fadeElements = document.querySelectorAll('.fade-in');
+
+      function checkFade() {
+        fadeElements.forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight;
+          if (rect.top < windowHeight - 50) {
+            el.classList.add('visible');
+          }
+        });
+      }
+
+      // Initial check
+      setTimeout(checkFade, 100);
+
+      // Check on scroll
+      window.addEventListener('scroll', checkFade);
+    });
+  </script>
 
 </body>
 

@@ -11,7 +11,7 @@
 
     gtag('config', 'G-X8TBGTHRZR');
   </script>
-  <title>Personify Personal/VCard Website Template</title>
+  <title>Contact - Ian Eisenberg</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -53,18 +53,34 @@
     <!--end of Navigation bar-->
     <aside style="background-image: url(img/profile_big.jpg);"></aside>
     <main>
-      <a href="index.html" class="home-button"><span class="fa fa-home"></span></a>
-      <p>
-        <a href="https://www.linkedin.com/in/ian-eisenberg-aa17b594/" class="mr-2 fa fa-linkedin fa-2x"></a>
-        <a href="https://twitter.com/Ian_Eisenberg" class="mr-2 fa fa-twitter fa-2x"></a>
-        <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en"
-          class="mr-2 ai ai-google-scholar ai-2x"></a>
-        <a href="https://github.com/IanEisenberg" class="mr-2 fa fa-github fa-2x"></a>
-        <a href="https://www.instagram.com/ianweisenberg/" class="mr-2 fa fa-instagram fa-2x"></a>
+      <h1 class="mb-4">Get in Touch</h1>
+      <p class="mb-4">I'd love to hear from you. Whether you want to discuss AI governance, collaborate on research, or just say hello, feel free to reach out.</p>
+
+      <p class="mb-5">
+        <a href="https://www.linkedin.com/in/ian-eisenberg-aa17b594/" class="mr-3 fa fa-linkedin fa-2x"></a>
+        <a href="https://twitter.com/Ian_Eisenberg" class="mr-3 fa fa-twitter fa-2x"></a>
+        <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en" class="mr-3 ai ai-google-scholar ai-2x"></a>
+        <a href="https://github.com/IanEisenberg" class="mr-3 fa fa-github fa-2x"></a>
+        <a href="https://www.instagram.com/ianweisenberg/" class="mr-3 fa fa-instagram fa-2x"></a>
       </p>
-      <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeCHAQWcjh4BvSUpt6UZLGun6pru5c5IhKR7Rmko5Q7i8tTWw/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
+
+      <form class="contact-form fade-in" id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeCHAQWcjh4BvSUpt6UZLGun6pru5c5IhKR7Rmko5Q7i8tTWw/formResponse" method="POST" target="hidden_iframe">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="entry.2005620554" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="entry.1045781291" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="entry.839337160" required></textarea>
+        </div>
+        <button type="submit" id="submit-btn">Send Message</button>
+        <p class="form-success" style="display:none; color:#2ecc71; margin-top:1rem;">Thanks! Your message has been sent.</p>
+      </form>
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
     </main>
   </div>
 
@@ -82,6 +98,31 @@
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.countdown.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var fadeElements = document.querySelectorAll('.fade-in');
+      setTimeout(function() {
+        fadeElements.forEach(function(el) { el.classList.add('visible'); });
+      }, 100);
+
+      // Handle form submission
+      var form = document.getElementById('contact-form');
+      var btn = document.getElementById('submit-btn');
+      var success = document.querySelector('.form-success');
+
+      form.addEventListener('submit', function() {
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        // Show success after short delay (iframe submission)
+        setTimeout(function() {
+          btn.style.display = 'none';
+          success.style.display = 'block';
+          form.reset();
+        }, 1000);
+      });
+    });
+  </script>
 
 </body>
 

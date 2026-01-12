@@ -11,7 +11,7 @@
 
     gtag('config', 'G-X8TBGTHRZR');
   </script>
-  <title>Personify Personal/VCard Website Template</title>
+  <title>AI - Ian Eisenberg</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -53,9 +53,8 @@
 
     <aside style="background-image: url(img/AI_landscape.jpeg);"></aside>
     <main>
-      <a href="index.html" class="home-button"><span class="fa fa-home"></span></a>
       <h1 class="mb-5">AI</h1>
-      <div class="mb-5">
+      <div class="mb-5 fade-in">
         <p>I believe the current moment in AI marks a turning point for humanity. We are 
           scaling our ability to reason and interact with information in an unprecedented manner.
           At the very least this moment introduces a new set of transformative tools that will
@@ -89,7 +88,10 @@
           as part of <a href="https://www.nist.gov/news-events/events/2022/10/building-nist-ai-risk-management-framework-workshop-3">NIST's RMF workshops</a>.
 
         </p>
-        <p>Find a greater selection of writings on my <a href="publications.html">publications page</a></p>
+        </div>
+
+      <div class="page-cta">
+        <a href="publications.html">Explore my writings on AI governance</a>
       </div>
 
     </main>
@@ -109,6 +111,14 @@
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.countdown.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var fadeElements = document.querySelectorAll('.fade-in');
+      setTimeout(function() {
+        fadeElements.forEach(function(el) { el.classList.add('visible'); });
+      }, 100);
+    });
+  </script>
 
 </body>
 

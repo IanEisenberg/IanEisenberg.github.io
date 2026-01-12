@@ -11,7 +11,7 @@
 
     gtag('config', 'G-X8TBGTHRZR');
   </script>
-  <title>Resources - Ian W Eisenberg</title>
+  <title>Publications - Ian Eisenberg</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -25,59 +25,83 @@
   <script>
 $(document).ready(function(){
   $.getJSON("publications.json", function(data){
-    var pub_items = [], 
-        policy_items = [], 
-        blog_items = [],
-        contributions_items = [];
-    
-    data.publications.sort(function(a, b){
-      return new Date(b.date) - new Date(a.date);
-    });
-    $.each(data.publications, function(key, val){
-      pub_items.push("<li><strong>" + val.title + "</strong><br>" +
-        val.journal + " | " + val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
-    });
+    function createCard(item, includeJournal) {
+      var metaParts = [];
+      if (includeJournal && item.journal) metaParts.push('<span>' + item.journal + '</span>');
+      metaParts.push('<span>' + item.source + '</span>');
+      metaParts.push('<span>' + item.date + '</span>');
 
-    data.policy.sort(function(a, b){
-      return new Date(b.date) - new Date(a.date);
-    });
-    $.each(data.policy, function(key, val){
-      policy_items.push("<li><strong>" + val.title + "</strong><br>" +
-        val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
-    });
+      return '<li class="pub-card fade-in-stagger">' +
+        '<a href="' + item.link + '" target="_blank" style="text-decoration:none; color:inherit; display:block;">' +
+        '<h5>' + item.title + '</h5>' +
+        '<div class="pub-meta">' + metaParts.join('') + '</div>' +
+        '<span class="pub-link">Read</span>' +
+        '</a></li>';
+    }
 
-    data.blogs.sort(function(a, b){
-      return new Date(b.date) - new Date(a.date);
-    });
-    $.each(data.blogs, function(key, val){
-      blog_items.push("<li><strong>" + val.title + "</strong><br>" +
-                    val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
-    });
+    function renderSection(items, container, includeJournal) {
+      items.sort(function(a, b) {
+        return new Date(b.date) - new Date(a.date);
+      });
+      var html = items.map(function(item) {
+        return createCard(item, includeJournal);
+      }).join('');
+      $(container).html(html);
+    }
 
-    data.contributions.sort(function(a, b){
-      return new Date(b.date) - new Date(a.date);
-    });
-    $.each(data.contributions, function(key, val){
-      contributions_items.push("<li><strong>" + val.title + "</strong><br>" +
-                    val.source + " | " + val.date + "| <a href='" + val.link + "' target='_blank'>Read more</a></li><br>");
-    });
+    renderSection(data.publications, ".academic-list", true);
+    renderSection(data.policy, ".policy-list", false);
+    renderSection(data.blogs, ".blog-list", false);
+    renderSection(data.contributions, ".contributions-list", true);
 
-    $(".academic-list").html(pub_items.join(""));
-    $(".policy-list").html(policy_items.join(""));
-    $(".blog-list").html(blog_items.join(""));
-    $(".contributions-list").html(contributions_items.join(""));
+    // Open first section by default and animate its cards
+    setTimeout(function() {
+      var firstToggle = $('.pub-drawer-toggle').first();
+      var firstDrawer = $('.pub-drawer').first();
+      firstToggle.addClass('open');
+      firstDrawer.addClass('open');
+
+      // Animate cards in open drawer
+      firstDrawer.find('.pub-card').each(function(index) {
+        var card = $(this);
+        setTimeout(function() {
+          card.addClass('visible');
+        }, index * 80);
+      });
+    }, 100);
+
+    // Drawer toggle functionality
+    $('.pub-drawer-toggle').on('click', function() {
+      var toggle = $(this);
+      var targetClass = toggle.data('target');
+      var drawer = $('.' + targetClass);
+
+      // Close other drawers
+      $('.pub-drawer-toggle').not(toggle).removeClass('open');
+      $('.pub-drawer').not(drawer).removeClass('open');
+
+      // Toggle this drawer
+      toggle.toggleClass('open');
+      drawer.toggleClass('open');
+
+      // Animate cards if opening
+      if (drawer.hasClass('open')) {
+        drawer.find('.pub-card').removeClass('visible');
+        drawer.find('.pub-card').each(function(index) {
+          var card = $(this);
+          setTimeout(function() {
+            card.addClass('visible');
+          }, index * 80);
+        });
+      }
+    });
   });
 });
   </script>
-      <script>
-        document.addEventListener('DOMContentLoaded', function(){
-            document.querySelector('.offcanvas-toggle').style.color = '#fff'; 
-        });
-    </script>
 
 </head>
 
-<body>z
+<body>
 
   <div class="site-wrap">
     <!--Navigation bar-->
@@ -97,36 +121,43 @@ $(document).ready(function(){
     
     <aside style="background-image: url(img/publications.png);"></aside>
     <main>
-      <a href="index.html" class="home-button"><span class="fa fa-home"></span></a>
       <h1 class="mb-5">Writings</h1>
       <p>Welcome to my publications page, where you can find links to my writings across the internet! For a comprehensive list of my academic publications, please visit my <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en">Google Scholar profile</a>. I also maintain the <a href="https://aisalon.substack.com/">Ai Salon Archive</a> substack.</p>
       
       <div class="mb-5">
       <!-- Academic Section -->
-      <section id="academic">
-        <h4>Selected Academic Publications</h4>
-        <ul class="academic-list">
+      <section id="academic" class="pub-section">
+        <h4 class="pub-drawer-toggle" data-target="academic-list">
+          <span class="drawer-icon">+</span> Selected Academic Publications
+        </h4>
+        <ul class="pub-cards pub-drawer academic-list">
         </ul>
       </section>
-      
+
       <!-- Policy Section -->
-      <section id="policy">
-        <h4>Policy Writings</h4>
-        <ul class="policy-list">
+      <section id="policy" class="pub-section">
+        <h4 class="pub-drawer-toggle" data-target="policy-list">
+          <span class="drawer-icon">+</span> Policy Writings
+        </h4>
+        <ul class="pub-cards pub-drawer policy-list">
         </ul>
       </section>
 
       <!-- Blogs Section -->
-      <section id="blogs">
-        <h4>Blogs</h4>
-        <ul class="blog-list">
+      <section id="blogs" class="pub-section">
+        <h4 class="pub-drawer-toggle" data-target="blog-list">
+          <span class="drawer-icon">+</span> Blogs
+        </h4>
+        <ul class="pub-cards pub-drawer blog-list">
         </ul>
       </section>
 
       <!-- Contributions Section -->
-      <section id="contributions">
-        <h4>Contributions</h4>
-        <ul class="contributions-list">
+      <section id="contributions" class="pub-section">
+        <h4 class="pub-drawer-toggle" data-target="contributions-list">
+          <span class="drawer-icon">+</span> Contributions
+        </h4>
+        <ul class="pub-cards pub-drawer contributions-list">
         </ul>
       </section>
     </div>
@@ -134,8 +165,11 @@ $(document).ready(function(){
   </div>
 
   <!-- Existing Scripts -->
+  <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/main.js"></script>
 
 </body>
