@@ -2276,22 +2276,13 @@ aside {
 
 #face-timelapse {
   position: absolute;
-  /* ADJUST THESE to position the video */
-  top: -5%;           /* distance from top */
-  left: 50%;          /* horizontal center */
-  transform: translateX(-50%);
-  width: 67%;         /* video width (% of aside) */
-  height: auto;       /* maintain aspect ratio */
-  /* END adjustable values */
-
-  object-fit: cover;
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
 
-  /* Fade out at edges - narrower horizontally */
-  -webkit-mask-image: radial-gradient(ellipse 45% 70% at center, black 50%, transparent 85%);
-  mask-image: radial-gradient(ellipse 45% 70% at center, black 50%, transparent 85%);
+  /* Fade out at edges */
+  -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 70%);
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 70%);
 }
 
 #face-timelapse.playing {

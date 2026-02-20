@@ -52,7 +52,7 @@
     <!--end of Navigation bar-->
     
     <aside style="background-image: url(img/profile.jpeg);">
-      <video id="face-timelapse" src="img/face-timelapse-web.mp4" muted playsinline loop preload="auto"></video>
+      <video id="face-timelapse" src="img/face-timelapse-small.mp4" muted playsinline loop preload="auto"></video>
     </aside>
     <main>
       <h1 class="mb-0">Ian Eisenberg</h1>
@@ -107,54 +107,81 @@
       var videoDuration = 85;
       var videoReady = false;
 
-      if (aside && video) {
-        // Preload entire video into memory for seeking support
-        fetch(video.src)
-          .then(function(response) { return response.blob(); })
-          .then(function(blob) {
-            video.src = URL.createObjectURL(blob);
-            videoReady = true;
-            console.log('Video preloaded');
+      // Source image dimensions
+      var bgImgW = 1283, bgImgH = 1927;
+
+      // Face center in the ORIGINAL source image (fraction 0-1)
+      var bgFaceX = 0.7, bgFaceY = 0.3;
+
+      // Face center within the video frame (fraction 0-1)
+      var vidFaceX = 0.30, vidFaceY = 0.50;
+
+      function getFacePosition() {
+        var cw = aside.offsetWidth;
+        var ch = aside.offsetHeight;
+
+        // Replicate background-size:cover + background-position:center
+        var bgScale = Math.max(cw / bgImgW, ch / bgImgH);
+        var bgRenderedW = bgImgW * bgScale;
+        var bgRenderedH = bgImgH * bgScale;
+        var bgOffX = (cw - bgRenderedW) / 2;
+        var bgOffY = (ch - bgRenderedH) / 2;
+
+        var x = bgOffX + bgFaceX * bgRenderedW;
+        var y = bgOffY + bgFaceY * bgRenderedH;
+
+        return { x: x, y: y, containerW: cw, containerH: ch, bgScale: bgScale };
+      }
+
+      if (aside) {
+        aside.style.overflow = 'hidden';
+
+        // Preload video
+        if (video) {
+          fetch(video.src)
+            .then(function(response) { return response.blob(); })
+            .then(function(blob) {
+              video.src = URL.createObjectURL(blob);
+              videoReady = true;
+            });
+
+          var fadeTimeout, stopTimeout;
+
+          aside.addEventListener('mouseenter', function() {
+            if (!videoReady) return;
+            clearTimeout(fadeTimeout);
+            clearTimeout(stopTimeout);
+
+            var pos = getFacePosition();
+            var videoSize = Math.round(850 * pos.bgScale);
+
+            video.style.width = videoSize + 'px';
+            video.style.height = videoSize + 'px';
+            video.style.left = (pos.x - videoSize * vidFaceX) + 'px';
+            video.style.top = (pos.y - videoSize * vidFaceY) + 'px';
+
+            video.currentTime = Math.floor(Math.random() * videoDuration);
+            video.classList.remove('fading');
+            video.classList.add('playing');
+            video.play();
+
+            fadeTimeout = setTimeout(function() {
+              video.classList.add('fading');
+            }, 6000);
+
+            stopTimeout = setTimeout(function() {
+              video.pause();
+              video.classList.remove('playing', 'fading');
+            }, 7000);
           });
 
-        var fadeTimeout, stopTimeout;
-
-        aside.addEventListener('mouseenter', function() {
-          if (!videoReady) {
-            console.log('Video still loading...');
-            return;
-          }
-
-          // Clear any existing timeouts
-          clearTimeout(fadeTimeout);
-          clearTimeout(stopTimeout);
-
-          // Random start time
-          var randomTime = Math.floor(Math.random() * videoDuration);
-          video.currentTime = randomTime;
-          video.classList.remove('fading');
-          video.classList.add('playing');
-          video.play();
-
-          // Start fade at 6 seconds
-          fadeTimeout = setTimeout(function() {
-            video.classList.add('fading');
-          }, 6000);
-
-          // Stop at 7 seconds
-          stopTimeout = setTimeout(function() {
+          aside.addEventListener('mouseleave', function() {
+            clearTimeout(fadeTimeout);
+            clearTimeout(stopTimeout);
             video.pause();
             video.classList.remove('playing', 'fading');
-          }, 7000);
-        });
-
-        // Stop when mouse leaves the aside
-        aside.addEventListener('mouseleave', function() {
-          clearTimeout(fadeTimeout);
-          clearTimeout(stopTimeout);
-          video.pause();
-          video.classList.remove('playing', 'fading');
-        });
+          });
+        }
       }
     });
 
