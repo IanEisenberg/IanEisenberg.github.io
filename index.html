@@ -147,7 +147,7 @@
 
           var fadeTimeout, stopTimeout;
 
-          aside.addEventListener('mouseenter', function() {
+          function startTimelapse() {
             if (!videoReady) return;
             clearTimeout(fadeTimeout);
             clearTimeout(stopTimeout);
@@ -173,7 +173,12 @@
               video.pause();
               video.classList.remove('playing', 'fading');
             }, 7000);
-          });
+          }
+
+          aside.addEventListener('mouseenter', startTimelapse);
+          // Also trigger on click/tap — on mobile, mouseenter only fires once
+          // per element until focus leaves, so subsequent taps wouldn't re-trigger.
+          aside.addEventListener('click', startTimelapse);
 
           aside.addEventListener('mouseleave', function() {
             clearTimeout(fadeTimeout);
