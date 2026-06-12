@@ -1,6 +1,13 @@
 {
     "publications": [
       {
+        "title": "Prioritization of Risks from Artificial Intelligence: A Delphi Study of 272 International Experts",
+        "source": "Credo AI",
+        "journal": "arXiv",
+        "date": "June, 2026",
+        "link": "https://arxiv.org/abs/2606.04490"
+      },
+      {
         "title": "The Unified Control Framework: Establishing a Common Foundation for Enterprise AI Governance, Risk Management and Regulatory Compliance",
         "source": "Credo AI",
         "journal": "arXiv",
