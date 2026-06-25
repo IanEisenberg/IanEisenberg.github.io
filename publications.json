@@ -126,6 +126,12 @@
     ],
     "contributions": [
       {
+        "title": "2026 Transparency Report on Foundation Model Impacts",
+        "source": "Partnership on AI",
+        "date": "April, 2026",
+        "link": "https://partnershiponai.org/resource/2026-transparency-report-on-foundation-model-impacts/"
+      },
+      {
         "title": "Risk Mitigation Strategies for the Open Foundation Model Value Chain",
         "source": "Partnership on AI",
         "date": "July, 2024",
@@ -136,7 +142,7 @@
         "source": "UC Berkeley",
         "journal": "Center for Long-Term Cybersecurity",
         "date": "2023",
-        "link": "https://perma.cc/8W6P-2UUK"
+        "link": "https://cltc.berkeley.edu/wp-content/uploads/2023/11/Berkeley-GPAIS-Foundation-Model-Risk-Management-Standards-Profile-v1.0.pdf"
       }
     ]
   }
