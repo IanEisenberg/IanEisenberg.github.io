@@ -2048,6 +2048,12 @@ aside {
 
   main {
     max-width: 700px;
+    /* box-sizing is border-box, so max-width caps the *border* box. main's
+       default padding is a percentage of the viewport, so once max-width kicks
+       in the padding keeps growing while the box does not — squeezing the text
+       column to nothing on wide screens. Freeze the padding at its 1400px
+       values (3%/7% of 1400 = 42px/98px) so the column stays ~504px wide. */
+    padding: 42px 98px 98px;
   }
 }
 
@@ -2059,7 +2065,10 @@ aside {
   }
 
   main {
-    padding-left: calc((100vw - 1800px) / 2 + 7%);
+    /* Slide main to the left edge of the centered 1800px band that aside is
+       pinned to. Must be margin, not padding: padding would be subtracted
+       from the 700px max-width and collapse the column again. */
+    margin-left: calc((100vw - 1800px) / 2);
   }
 }
 
