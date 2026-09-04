@@ -25,26 +25,34 @@
   <script>
 $(document).ready(function(){
   $.getJSON("publications.json", function(data){
-    function createCard(item, includeJournal) {
+    function createCard(item, includeJournal, linkLabel) {
       var metaParts = [];
       if (includeJournal && item.journal) metaParts.push('<span>' + item.journal + '</span>');
       metaParts.push('<span>' + item.source + '</span>');
       metaParts.push('<span>' + item.date + '</span>');
 
+      var body = '<h5>' + item.title + '</h5>' +
+        '<div class="pub-meta">' + metaParts.join('') + '</div>';
+
+      // Entries without a public link (e.g. closed workshops) render as plain cards
+      if (!item.link) {
+        return '<li class="pub-card fade-in-stagger">' + body + '</li>';
+      }
+
+      var label = /youtube\.com|youtu\.be|vimeo\.com/.test(item.link) ? 'Watch' : (linkLabel || 'Read');
       return '<li class="pub-card fade-in-stagger">' +
         '<a href="' + item.link + '" target="_blank" style="text-decoration:none; color:inherit; display:block;">' +
-        '<h5>' + item.title + '</h5>' +
-        '<div class="pub-meta">' + metaParts.join('') + '</div>' +
-        '<span class="pub-link">Read</span>' +
+        body +
+        '<span class="pub-link">' + label + '</span>' +
         '</a></li>';
     }
 
-    function renderSection(items, container, includeJournal) {
+    function renderSection(items, container, includeJournal, linkLabel) {
       items.sort(function(a, b) {
         return new Date(b.date) - new Date(a.date);
       });
       var html = items.map(function(item) {
-        return createCard(item, includeJournal);
+        return createCard(item, includeJournal, linkLabel);
       }).join('');
       $(container).html(html);
     }
@@ -53,6 +61,7 @@ $(document).ready(function(){
     renderSection(data.policy, ".policy-list", false);
     renderSection(data.blogs, ".blog-list", false);
     renderSection(data.contributions, ".contributions-list", true);
+    renderSection(data.talks, ".talks-list", true, "Details");
 
     // Open first section by default and animate its cards
     setTimeout(function() {
@@ -121,8 +130,8 @@ $(document).ready(function(){
     
     <aside style="background-image: url(img/publications.png);"></aside>
     <main>
-      <h1 class="mb-5">Writings</h1>
-      <p>Welcome to my publications page, where you can find links to my writings across the internet! For a comprehensive list of my academic publications, please visit my <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en">Google Scholar profile</a>. I also maintain the <a href="https://aisalon.substack.com/">Ai Salon Archive</a> substack.</p>
+      <h1 class="mb-5">Writings &amp; Talks</h1>
+      <p>Welcome to my publications page, where you can find links to my writings across the internet! For a comprehensive list of my academic publications, please visit my <a href="https://scholar.google.com/citations?user=K--e-R4AAAAJ&hl=en">Google Scholar profile</a>. I also maintain the <a href="https://aisalon.substack.com/">Ai Salon Archive</a> substack. Talks, panels, and workshops are listed at the bottom.</p>
       
       <div class="mb-5">
       <!-- Academic Section -->
@@ -158,6 +167,15 @@ $(document).ready(function(){
           <span class="drawer-icon">+</span> Contributions
         </h4>
         <ul class="pub-cards pub-drawer contributions-list">
+        </ul>
+      </section>
+
+      <!-- Talks Section -->
+      <section id="talks" class="pub-section">
+        <h4 class="pub-drawer-toggle" data-target="talks-list">
+          <span class="drawer-icon">+</span> Talks, Panels &amp; Workshops
+        </h4>
+        <ul class="pub-cards pub-drawer talks-list">
         </ul>
       </section>
     </div>

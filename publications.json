@@ -144,5 +144,161 @@
         "date": "2023",
         "link": "https://cltc.berkeley.edu/wp-content/uploads/2023/11/Berkeley-GPAIS-Foundation-Model-Risk-Management-Standards-Profile-v1.0.pdf"
       }
+    ],
+    "talks": [
+        {
+            "title": "The Ashby Workshops 2026",
+            "source": "Fathom",
+            "journal": "Workshop",
+            "date": "February, 2026",
+            "link": "https://the-ashby-workshops-2026.fathom.org/"
+        },
+        {
+            "title": "The AI Wars: Regulation, Open Science, and the Race for Global Power",
+            "source": "Regulatable ML Workshop, NeurIPS",
+            "journal": "Panel",
+            "date": "December, 2025",
+            "link": "https://regulatableml.github.io/"
+        },
+        {
+            "title": "FAR.AI Alignment Workshop",
+            "source": "FAR.AI, NeurIPS",
+            "journal": "Workshop",
+            "date": "December, 2025",
+            "link": "https://www.far.ai/events/event-list/san-diego-alignment-workshop"
+        },
+        {
+            "title": "Agent Risk Workshop",
+            "source": "World Economic Forum",
+            "journal": "Workshop",
+            "date": "April, 2025",
+            "link": ""
+        },
+        {
+            "title": "Model Trust Scores",
+            "source": "AI and Enterprise Workshop",
+            "journal": "Talk",
+            "date": "February, 2025",
+            "link": ""
+        },
+        {
+            "title": "AI Risk Thresholds Roundtable",
+            "source": "UC Berkeley",
+            "journal": "Workshop",
+            "date": "November, 2024",
+            "link": ""
+        },
+        {
+            "title": "Legal Considerations for the Use of AI in the Enterprise",
+            "source": "Arthur AI Fest",
+            "journal": "Panel",
+            "date": "September, 2024",
+            "link": ""
+        },
+        {
+            "title": "Securing the Path to AI Innovation with Risk Evaluations",
+            "source": "PECC Seminar on Responsible Adoption of General-Purpose AI",
+            "journal": "Panel (moderator)",
+            "date": "September, 2024",
+            "link": "https://app.glueup.com/event/responsible-adoption-of-general-purpose-ai-108941/agenda.html"
+        },
+        {
+            "title": "Enterprise AI Governance: A Comprehensive Playbook",
+            "source": "AIQ Con",
+            "journal": "Talk",
+            "date": "June, 2024",
+            "link": "https://www.youtube.com/watch?v=KR6y-j894ck"
+        },
+        {
+            "title": "Truth and Bias: Perspective on AI's Impact on Knowledge and Information",
+            "source": "The AI Symposium, Carnegie Mellon University and Google",
+            "journal": "Panel",
+            "date": "November, 2023",
+            "link": "https://rsvp.withgoogle.com/events/ai_symposium"
+        },
+        {
+            "title": "AI Governance Summit",
+            "source": "World Economic Forum",
+            "journal": "Workshop",
+            "date": "November, 2023",
+            "link": ""
+        },
+        {
+            "title": "UC Berkeley AI Risk-Management Standards Profile for GPAIS and Foundation Models",
+            "source": "UC Berkeley Center for Long-Term Cybersecurity",
+            "journal": "Panel",
+            "date": "November, 2023",
+            "link": "https://cltc.berkeley.edu/event/uc-berkeley-ai-risk-management-standards-profile-for-gpais-and-foundation-models/"
+        },
+        {
+            "title": "Hands-On AI Risk Management: Utilizing the NIST AI RMF and LLMs",
+            "source": "ODSC West",
+            "journal": "Invited talk",
+            "date": "October, 2023",
+            "link": "https://odsc.com/speakers/hands-on-ai-risk-management-utilizing-the-nist-ai-rmf-and-llms/"
+        },
+        {
+            "title": "Building Responsible AI: Best Practices Across the Product Development Lifecycle",
+            "source": "Data Science Dojo",
+            "journal": "Talk",
+            "date": "November, 2022",
+            "link": "https://www.youtube.com/watch?v=qa630IXczx4&t=1883s"
+        },
+        {
+            "title": "Human Flourishing and the Futures of Intelligence",
+            "source": "Stanford University and Worldview Studios",
+            "journal": "Panel",
+            "date": "November, 2022",
+            "link": "https://vimeo.com/775145221/227c71b2b6"
+        },
+        {
+            "title": "How to Manage AI Risk Across the AI Lifecycle",
+            "source": "NIST AI Risk Management Framework Workshop 3",
+            "journal": "Panel",
+            "date": "October, 2022",
+            "link": "https://www.nist.gov/news-events/events/2022/10/building-nist-ai-risk-management-framework-workshop-3"
+        },
+        {
+            "title": "Uncovering Mental Structure through Data-Driven Ontology Discovery",
+            "source": "Mind, Brain, Computation and Technology Seminar, Stanford University",
+            "journal": "Talk",
+            "date": "June, 2019",
+            "link": "https://neuroscience.stanford.edu/mbct/events/mind-brain-computation-and-technology-graduate-and-postdoc-training-seminar-ian-eisenberg-and"
+        },
+        {
+            "title": "Uncovering Mental Structure through Data-Driven Ontology Discovery",
+            "source": "Society for Personality and Social Psychology Annual Convention",
+            "journal": "Invited talk",
+            "date": "February, 2019",
+            "link": "https://spsp.org/sites/default/files/2023-04/2019PrintedProgram-Full.pdf"
+        },
+        {
+            "title": "Uncovering Mental and Neural Structure through Data-Driven Ontology Discovery",
+            "source": "Society for Neuroscience Annual Meeting",
+            "journal": "Poster",
+            "date": "November, 2018",
+            "link": "https://www.abstractsonline.com/pp8/#!/4649/presentation/23535"
+        },
+        {
+            "title": "Uncovering Mental and Neural Structure through Data-Driven Ontology Discovery",
+            "source": "Conference on Cognitive Computational Neuroscience",
+            "journal": "Poster",
+            "date": "September, 2018",
+            "link": "https://2018.ccneuro.org/Papers/ViewPapers.asp?PaperNum=1179"
+        },
+        {
+            "title": "Task-set Selection in Probabilistic Environments: A Model of Task-set Inference",
+            "source": "Annual Meeting of the Cognitive Science Society",
+            "journal": "Talk",
+            "date": "August, 2016",
+            "link": "https://cognitivesciencesociety.org/wp-content/uploads/2019/03/cogsci2016_proceedings.pdf"
+        },
+        {
+            "title": "Two Poster Presentations",
+            "source": "Society for Neuroscience Annual Meeting",
+            "journal": "Poster",
+            "date": "November, 2013",
+            "link": ""
+        }
     ]
   }
